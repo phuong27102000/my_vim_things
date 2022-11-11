@@ -1,0 +1,262 @@
+"==================================================
+"Pathogen
+"Enable matchit
+runtime macros/matchit.vim
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+let mapleader=" "
+
+"==================================================
+"SnipMate
+let g:snipMate = { 'snippet_version' : 1 }
+
+"================================================== 
+"NERDTree
+"let NERDTreeDirArrowCollapsible="-"
+"let NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrows=0
+let NERDTreeShowHidden=1
+nnoremap <leader>nt :NERDTreeToggle<CR>
+let g:NERDTreeStatusline="%7*%=%7*\ %6*\ %5*\ %4*\ %3*\ %2*\ %1*\ %8*\ NERDTree\ %1*\ %2*\ %3*\ %4*\ %5*\ %6*\ %7*\ "
+
+"==================================================
+"Template
+let g:username = "Nguyen Ha Nhat Phuong"
+let g:email = "phuong2710@gmail.com"
+autocmd BufRead * call s:ApplyTemplate()
+function! s:ApplyTemplate()
+    if getfsize(expand('%')) == 0
+      Template
+    endif
+endfun
+
+"==================================================
+"SystemVerilog
+autocmd BufRead *.svi,*.pkg set ft=systemverilog
+
+"==================================================
+"Tabular
+xmap <leader>' :Tabularize /
+nmap <leader>' :Tabularize /
+"let g:tabular_loaded=1
+
+"==================================================
+"NERDComment
+"autocmd BufRead *.sv,*.svh,*.v set commentstring=//%s
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+"" Set a language to use its alternate delimiters by default
+"let g:NERDAltDelims_java = 1
+"
+"" Add your own custom formats or override the defaults
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+"==================================================
+"Colorscheme
+colorscheme elflord
+
+"================================================== 
+"Setting
+"Tab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set shiftround 
+set expandtab
+
+"Search
+set incsearch
+set hlsearch
+
+"Backup file 
+set nowritebackup
+set noswapfile
+set nobackup
+
+"History
+set history=50
+set showcmd
+
+"Ruler
+set ruler
+
+"Bracket higlighting
+set showmatch
+
+"Number
+set number
+set relativenumber
+
+"Autoread
+set autoread
+
+"Autoindent
+set autoindent
+set smartindent
+
+"Scroll
+set scrolloff=12
+
+"Backspace
+set backspace=2
+
+"Split
+set splitright
+set splitbelow
+
+"Wrap
+set linebreak
+set nolist
+
+"Cursorline
+set cursorline
+
+"Statusline
+set laststatus=2
+hi User1 ctermbg=244
+hi User2 ctermbg=242
+hi User3 ctermbg=240
+hi User4 ctermbg=238
+hi User5 ctermbg=236
+hi User6 ctermbg=234
+hi User7 ctermbg=232
+hi User8 ctermbg=18  ctermfg=226 cterm=bold
+hi User9 ctermbg=16
+
+set statusline=%7*
+set statusline+=%=%7*%=%7*\ %6*\ %5*\ %4*\ %3*\ %2*\ %1*\ 
+set statusline+=%=%8*\ %{HasPaste()}%t\ %m
+set statusline+=%1*\ %2*\ %3*\ %4*\ %5*\ %6*\ %7*\ 
+
+"==================================================
+"Fascinating Mapping
+map <silent><leader>1 :NERDTreeFocus<CR>
+map <silent><leader>2 :NERDTreeToggle<CR>
+map <silent><leader>3 :set nu!<CR>
+map <silent><leader>4 :set relativenumber!<CR>
+map <silent><leader>5 :call SetMouse()<CR>
+map <silent><leader>6 :set wrap!<CR>
+map <silent><leader>7 :set paste!<CR>
+map <silent><leader>8 :set cul!<CR>
+map <silent><leader>9 :set cuc!<CR>
+map <silent><leader>0 :echo expand('%:p')<CR>
+
+
+"==================================================
+"Split window
+nnoremap <silent><Leader>w <C-w><C-w>
+nnoremap <silent><Leader>h :split<CR>
+nnoremap <silent><Leader>v :vsplit<CR>
+nnoremap hv <C-w>t<C-w>H
+nnoremap vh <C-w>t<C-w>K
+nnoremap <C-Right> <C-w>l
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Down> <C-w>j
+" nnoremap <leader>rt <C-w>r
+" nnoremap <leader>re <C-w>R
+nnoremap <C-h> <C-w>>
+nnoremap <C-j> <C-w>-
+nnoremap <C-k> <C-w>+
+nnoremap <C-l> <C-w><
+
+"==================================================
+"Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+"==================================================
+"In visual mode indent shifting > and <
+vnoremap < <gv
+vnoremap > >gv
+
+"==================================================
+"In normal mode map to go faster up or down
+nnoremap J                  10j
+nnoremap K                  10k
+nnoremap L                  10l
+nnoremap H                  10h
+nnoremap <Leader><PageUp>   10<PageUp>
+nnoremap <Leader><PageDown> 10<PageDown>
+
+"==================================================
+"Search and replace
+nnoremap <leader>gr :%s@@@
+nnoremap <leader>zx /^1\n\\|^0\n/<CR>
+
+"==================================================
+"Useful mappings for managing tabs
+map <Leader>tn      :tabnew<cr>
+map <Leader>te      :Texplore<cr>
+map <Leader>to      :tabonly<cr>
+map <Leader>tc      :tabclose<cr>
+map <Leader>tm      :tabmove
+map <Leader>tt      :tabnext
+map <Leader><Right> :tabnext<cr>
+map <Leader><Left>  :tabprevious<cr>
+
+"==================================================
+"Diff
+map <Leader>dt :diffthis<CR>
+map <Leader>do :diffoff<CR>
+map <Leader>da :diffoff!<CR>
+
+"==================================================
+"Highlight
+hi DiffText     cterm=bold  ctermbg=NOne      ctermfg=LightRed
+hi DiffChange               ctermbg=LightCyan ctermfg=Black
+hi DiffAdd                  ctermbg=Gray      ctermfg=Black
+hi Search                   ctermbg=Yellow    ctermfg=Black
+hi Comment                                    ctermfg=DarkYellow
+hi CursorLine   cterm=None  ctermbg=234
+hi CursorColumn cterm=None  ctermbg=234
+hi CustomHL                 ctermbg=Yellow    ctermfg=Black cterm=bold
+
+let default_gr = getmatches()
+nnoremap <silent><Leader>b :call matchadd('CustomHL', '\%'.line('.').'l')<CR>
+nnoremap <silent><Leader>n :call clearmatches()<CR>:call setmatches(default_gr)<CR>
+
+"================================================== 
+"==================== FUNCTION ==================== 
+"================================================== 
+
+"==================================================
+"Set mouse
+func! SetMouse()
+  if &mouse = ~"a"
+    set mouse=i
+    echo "mouse=i"
+  else
+    set mouse=a
+    echo "mouse=a"
+  endif
+endfunction
+
+"================================================== 
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'P-MODE  '
+    endif
+    return ''
+endfunction
