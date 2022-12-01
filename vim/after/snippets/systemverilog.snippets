@@ -110,5 +110,8 @@ snippet ucr
 	${0}
 # Report with macro `uvm_
 snippet urp
-	\`uvm_${1:info}( ${2:ID}, ${3:message}${4:, UVM_}${5:DEBUG});
+	\`uvm_${1:info}( ${2:get_type_name()}, ${3:\$sformatf("}${4:Hello world}${5:", }${9}${6:)}${7:, UVM_}${8:MEDIUM});
 	${0}
+# Backdoor Flag
+snippet ubf
+	\/\/ *** BACKDOOR FLAG *** May need to modify here whenever RTL changed!
