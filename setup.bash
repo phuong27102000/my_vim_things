@@ -9,15 +9,16 @@
 PWD=$(pwd)
 VIM_FOL=~/.vim
 VIM_FILE=~/.vimrc
+VIM_BACKUP=~/.myvimbackup
 if [ -d $VIM_FOL ] || [ -f $VIM_FILE ]; then
 	if [ ! -L $VIM_FOL ] || [ ! -L $VIM_FILE ]; then
-		if [ -d ~/myvimbackup/ ]; then
-		  echo "[WARNING] Already created ~/myvimbackup/"
+		if [ -d $VIM_BACKUP/ ]; then
+		  echo "[WARNING] Already created $VIM_BACKUP/"
 		else
-		  echo "[INFO] Creating ~/myvimbackup/"
-		  mkdir ~/myvimbackup/
+		  echo "[INFO] Creating $VIM_BACKUP/"
+		  mkdir $VIM_BACKUP/
 		fi
-		read -p "--> This process will move your current .vim/ and .vimrc to your ~/myvimbackup/? [y/n] " yn                                                 
+		read -p "--> This process will move your current .vim/ and .vimrc to your $VIM_BACKUP/? [y/n] " yn                                                 
 		case $yn in
 		  [Yy]* ) echo "[INFO] Process continues";;
 		  * ) echo "[INFO] Cancelled process."; exit;;
@@ -30,9 +31,9 @@ if [ -d $VIM_FOL/ ] || [ -L $VIM_FOL ]; then
 		echo "[INFO] Unlink $VIM_FOL/"
 		unlink $VIM_FOL
 	else
-		echo "[INFO] Moving from $VIM_FOL/ to ~/myvimbackup/.vim/"
+		echo "[INFO] Moving from $VIM_FOL/ to $VIM_BACKUP/.vim/"
     if [ -w $VIM_FOL ]; then
-		  mv $VIM_FOL ~/myvimbackup/.vim/
+		  mv $VIM_FOL $VIM_BACKUP/.vim/
     else
       echo "Cannot move file $VIM_FOL . Please set permission: \"chmod +w $VIM_FOL\""
       exit
@@ -47,9 +48,9 @@ if [ -f $VIM_FILE ] || [ -L $VIM_FILE ]; then
 		echo "[INFO] Unlink $VIM_FILE"
 		unlink $VIM_FILE
 	else
-		echo "[INFO] Moving from $VIM_FILE/ to ~/myvimbackup/.vimrc/"
+		echo "[INFO] Moving from $VIM_FILE/ to $VIM_BACKUP/.vimrc/"
     if [ -w $VIM_FILE ]; then
-		  mv $VIM_FILE ~/myvimbackup/.vimrc
+		  mv $VIM_FILE $VIM_BACKUP/.vimrc
     else
       echo "Cannot move file $VIM_FILE . Please set permission: \"chmod +w $VIM_FILE\""
       exit
