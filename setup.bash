@@ -7,8 +7,10 @@
 # ==================================================
 
 PWD=$(pwd)
-if [ -d ~/.vim ] || [ -f ~/.vimrc ]; then
-	if [ ! -L ~/.vim ] || [ ! -L ~/.vimrc ]; then
+VIM_FOL="~/.vim"
+VIM_FILE="~/.vimrc"
+if [ -d $VIM_FOL ] || [ -f $VIM_FILE ]; then
+	if [ ! -L $VIM_FOL ] || [ ! -L $VIM_FILE ]; then
 		if [ -d ~/myvimbackup/ ]; then
 		  echo "[WARNING] Already created ~/myvimbackup/"
 		else
@@ -23,26 +25,34 @@ if [ -d ~/.vim ] || [ -f ~/.vimrc ]; then
 	fi
 fi
 
-if [ -d ~/.vim/ ] || [ -L ~/.vim ]; then
-	if [ -L ~/.vim ]; then
-		echo "[INFO] Unlink ~/.vim/"
-		unlink ~/.vim
+if [ -d $VIM_FOL/ ] || [ -L $VIM_FOL ]; then
+	if [ -L $VIM_FOL ]; then
+		echo "[INFO] Unlink $VIM_FOL/"
+		unlink $VIM_FOL
 	else
-		echo "[INFO] Moving from ~/.vim/ to ~/myvimbackup/.vim/"
-		mv ~/.vim ~/myvimbackup/.vim/
+		echo "[INFO] Moving from $VIM_FOL/ to ~/myvimbackup/.vim/"
+    if [ -w $VIM_FOL ]; then
+		  mv $VIM_FOL ~/myvimbackup/.vim/
+    else
+      echo "Cannot move file $VIM_FOL . Please set permission: \"chmod +w $VIM_FOL\""
+      exit
 	fi
-	echo "[INFO] Link ~/.vim/ to $PWD/vim"
-	ln -s -T $PWD/vim/ ~/.vim 
+	echo "[INFO] Link $VIM_FOL/ to $PWD/vim"
+	ln -s -T $PWD/vim/ $VIM_FOL 
 fi
 		
-if [ -f ~/.vimrc ] || [ -L ~/.vimrc ]; then
-	if [ -L ~/.vimrc ]; then
-		echo "[INFO] Unlink ~/.vimrc"
-		unlink ~/.vimrc
+if [ -f $VIM_FILE ] || [ -L $VIM_FILE ]; then
+	if [ -L $VIM_FILE ]; then
+		echo "[INFO] Unlink $VIM_FILE"
+		unlink $VIM_FILE
 	else
-		echo "[INFO] Moving from ~/.vimrc/ to ~/myvimbackup/.vimrc/"
-		mv ~/.vimrc ~/myvimbackup/.vimrc
+		echo "[INFO] Moving from $VIM_FILE/ to ~/myvimbackup/.vimrc/"
+    if [ -w $VIM_FILE ]; then
+		  mv $VIM_FILE ~/myvimbackup/.vimrc
+    else
+      echo "Cannot move file $VIM_FILE . Please set permission: \"chmod +w $VIM_FILE\""
+      exit
 	fi
-	echo "[INFO] Link ~/.vimrc to $PWD/vimrc.txt"
-	ln -s -T $PWD/vimrc.txt ~/.vimrc
+	echo "[INFO] Link $VIM_FILE to $PWD/vimrc.txt"
+	ln -s -T $PWD/vimrc.txt $VIM_FILE
 fi
