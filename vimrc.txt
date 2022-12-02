@@ -2,6 +2,9 @@
 "Pathogen
 "Enable matchit
 runtime macros/matchit.vim
+"Set g:another_path_to_be_loaded_by_pathogen
+let g:another_path_to_be_loaded_by_pathogen = '~/.myvimbackup/internal_syntax/{}/start/{}/'
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -13,8 +16,8 @@ let g:snipMate = { 'snippet_version' : 1 }
 
 "================================================== 
 "NERDTree
-"let NERDTreeDirArrowCollapsible="-"
-"let NERDTreeDirArrowExpandable="+"
+let NERDTreeDirArrowCollapsible="-"
+let NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
 nnoremap <leader>nt :NERDTreeToggle<CR>
