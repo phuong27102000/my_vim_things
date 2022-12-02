@@ -7,8 +7,8 @@
 # ==================================================
 
 PWD=$(pwd)
-VIM_FOL="~/.vim"
-VIM_FILE="~/.vimrc"
+VIM_FOL=~/.vim
+VIM_FILE=~/.vimrc
 if [ -d $VIM_FOL ] || [ -f $VIM_FILE ]; then
 	if [ ! -L $VIM_FOL ] || [ ! -L $VIM_FILE ]; then
 		if [ -d ~/myvimbackup/ ]; then
