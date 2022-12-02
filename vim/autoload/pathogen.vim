@@ -33,7 +33,6 @@ function! pathogen#infect(...) abort
   let static = '^\%([$~\\/]\|\w:[\\/]\)[^{}*]*$'
   for path in filter(copy(paths), 'v:val =~# static')
     call pathogen#surround(path)
-    echo path
   endfor
   for path in filter(copy(paths), 'v:val !~# static')
     if path =~# '^\%([$~\\/]\|\w:[\\/]\)'
