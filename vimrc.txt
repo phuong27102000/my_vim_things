@@ -2,10 +2,9 @@
 "Pathogen
 "Enable matchit
 runtime macros/matchit.vim
-"Set g:another_path_to_be_loaded_by_pathogen
-let g:another_path_to_be_loaded_by_pathogen = '~/.myvimbackup/internal_syntax/{}/start/{}/'
 
-execute pathogen#infect()
+" execute pathogen#infect()
+execute pathogen#infect('bundle/{}/', 'pack/{}/start/{}/', '~/.myvimbackup/internal_syntax/{}/start/{}/')
 syntax on
 filetype plugin indent on
 let mapleader=" "
