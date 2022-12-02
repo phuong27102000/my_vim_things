@@ -36,6 +36,7 @@ if [ -d $VIM_FOL/ ] || [ -L $VIM_FOL ]; then
     else
       echo "Cannot move file $VIM_FOL . Please set permission: \"chmod +w $VIM_FOL\""
       exit
+    fi
 	fi
 	echo "[INFO] Link $VIM_FOL/ to $PWD/vim"
 	ln -s -T $PWD/vim/ $VIM_FOL 
@@ -52,6 +53,7 @@ if [ -f $VIM_FILE ] || [ -L $VIM_FILE ]; then
     else
       echo "Cannot move file $VIM_FILE . Please set permission: \"chmod +w $VIM_FILE\""
       exit
+    fi
 	fi
 	echo "[INFO] Link $VIM_FILE to $PWD/vimrc.txt"
 	ln -s -T $PWD/vimrc.txt $VIM_FILE
