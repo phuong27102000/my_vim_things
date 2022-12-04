@@ -35,7 +35,7 @@ snippet cl
 		function new();
 		endfunction: new
 
-	endclass : $1
+	endclass: $1
 # Typedef structure
 snippet types
 	typedef struct {
@@ -45,7 +45,7 @@ snippet types
 snippet prog
 	program ${1:program_name} ();
 		${0}
-	endprogram : $1
+	endprogram: $1
 # Interface block
 snippet intf
 	interface ${1:program_name} ();
@@ -55,22 +55,22 @@ snippet intf
 		${3}
 		// modports
 		${0}
-	endinterface : $1
+	endinterface: $1
 # Clocking Block
 snippet clock
 	clocking ${1:clocking_name} @(${2:posedge} ${3:clk});
 		${0}
-	endclocking : $1
+	endclocking: $1
 # Covergroup construct
 snippet cg
 	covergroup ${1:group_name} @(${2:posedge} ${3:clk});
 		${0}
-	endgroup : $1
+	endgroup: $1
 # Package declaration
 snippet pkg
 	package ${1:package_name};
 		${0}
-	endpackage : $1
+	endpackage: $1
 # ====================================================
 # ========== User-defined snippets			   ===========
 # ====================================================
