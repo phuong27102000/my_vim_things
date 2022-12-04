@@ -6,6 +6,8 @@ syn match svOtherFunction   "\$\(formatf\|format\|sformatf\|sformat\|test\$plusa
 syn match svOtherDelimiter  "\(\[\|]\)"
 syn match svOtherOperator   "\(\.\|,\|;\)"
 syn match svUserDef         "\`[A-Z][A-Za-z0-9_]\+"
+syn match svOperator        "#"
+syn keyword svType mailbox semaphore
 
 hi! default link svUvmDef         String
 hi! default link svOtherFunction  Function
