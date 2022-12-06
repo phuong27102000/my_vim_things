@@ -1,7 +1,7 @@
 "==================================================
 "========== Start: sv_start_of_my_syntax ==========
 "==================================================
-source /home/phuong/.vim/pack/systemverilog.vim/start/systemverilog.vim/syntax/sv_start_of_my_syntax.vim
+source ~/.vim/pack/systemverilog.vim/start/systemverilog.vim/syntax/sv_start_of_my_syntax.vim
 "==================================================
 "========== End:   sv_start_of_my_syntax ==========
 "==================================================
@@ -69,7 +69,7 @@ highlight! default link svObjectFunctions Function
 "==================================================
 "========== Start: sv_end_of_my_syntax ============
 "==================================================
-source /home/phuong/.vim/pack/systemverilog.vim/start/systemverilog.vim/syntax/sv_end_of_my_syntax.vim
+source ~/.vim/pack/systemverilog.vim/start/systemverilog.vim/syntax/sv_end_of_my_syntax.vim
 "==================================================
 "========== End:   sv_end_of_my_syntax ============
 "==================================================

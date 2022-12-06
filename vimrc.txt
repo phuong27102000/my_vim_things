@@ -1,4 +1,8 @@
 "==================================================
+"Personal Vimrc
+source ~/.myvimbackup/personal.vim
+
+"==================================================
 "Pathogen
 "Enable matchit
 runtime macros/matchit.vim
@@ -24,8 +28,6 @@ let g:NERDTreeStatusline="%7*%=%7*\ %6*\ %5*\ %4*\ %3*\ %2*\ %1*\ %8*\ NERDTree\
 
 "==================================================
 "Template
-let g:username = "Nguyen Ha Nhat Phuong"
-let g:email = "phuong2710@gmail.com"
 autocmd BufRead * call s:ApplyTemplate()
 function! s:ApplyTemplate()
     if getfsize(expand('%')) == 0
