@@ -10,6 +10,7 @@ PWD=$(pwd)
 VIM_FOL=~/.vim
 VIM_FILE=~/.vimrc
 VIM_BACKUP=~/.myvimbackup
+VIM_PSN=$VIM_BACKUP/personal.vim
 if [ -d $VIM_FOL ] || [ -f $VIM_FILE ]; then
 	if [ ! -L $VIM_FOL ] || [ ! -L $VIM_FILE ]; then
 		if [ -d $VIM_BACKUP/ ]; then
@@ -58,4 +59,9 @@ if [ -f $VIM_FILE ] || [ -L $VIM_FILE ]; then
 	fi
 	echo "[INFO] Link $VIM_FILE to $PWD/vimrc.txt"
 	ln -s -T $PWD/vimrc.txt $VIM_FILE
+fi
+
+if [ ! -f $VIM_PSN ]; then
+  touch $VIM_PSN
+  echo "[INFO] Created $VIM_PSN"
 fi
