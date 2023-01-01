@@ -40,9 +40,9 @@ if [ -d $VIM_FOL/ ] || [ -L $VIM_FOL ]; then
       exit
     fi
 	fi
-	echo "[INFO] Link $VIM_FOL/ to $PWD/vim"
-	ln -s -T $PWD/vim/ $VIM_FOL 
 fi
+echo "[INFO] Link $VIM_FOL/ to $PWD/vim"
+ln -s -T $PWD/vim/ $VIM_FOL 
 		
 if [ -f $VIM_FILE ] || [ -L $VIM_FILE ]; then
 	if [ -L $VIM_FILE ]; then
@@ -57,11 +57,17 @@ if [ -f $VIM_FILE ] || [ -L $VIM_FILE ]; then
       exit
     fi
 	fi
-	echo "[INFO] Link $VIM_FILE to $PWD/vimrc.txt"
-	ln -s -T $PWD/vimrc.txt $VIM_FILE
 fi
+echo "[INFO] Link $VIM_FILE to $PWD/vimrc.txt"
+ln -s -T $PWD/vimrc.txt $VIM_FILE
 
 if [ ! -f $VIM_PSN ]; then
+  if [ -d $VIM_BACKUP/ ]; then
+    echo "[WARNING] Already created $VIM_BACKUP/"
+  else
+    echo "[INFO] Creating $VIM_BACKUP/"
+    mkdir $VIM_BACKUP/
+  fi
   touch $VIM_PSN
   echo "[INFO] Created $VIM_PSN"
 fi
